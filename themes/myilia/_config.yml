@@ -1,9 +1,9 @@
 # Header
 
 menu:
-  主页: /
+  Home: /
   AI: #/tags/AI
-  随想: #/tags/随想
+  Other: #/tags/Other
 
 # SubNav
 subnav:
@@ -15,7 +15,7 @@ subnav:
   #weixin: "#"
   #jianshu: "#"
   #douban: "#"
-  mail: "mailto:ashawn@qq.com"
+  mail: "mailto:bobliu20@vip.qq.com"
   #facebook: "#"
   #google: "#"
   #twitter: "#"
