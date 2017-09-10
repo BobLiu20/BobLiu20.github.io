@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.bobliu.vip">
-  <title>Tag: other | BobLiu&#39;s AI world</title>
+  <title>KMeans (Python Code) | BobLiu&#39;s AI world</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Enjoy Your AI">
-<meta property="og:type" content="website">
-<meta property="og:title" content="BobLiu&#39;s AI world">
-<meta property="og:url" content="http://www.bobliu.vip/tags/other/index.html">
+  <meta name="description" content="用于N维数据的聚类代码，根据你提供的数据维度包含三个代码：  kmeans.py 为kmeans实现源码 test.py 为测试代码 testdata.txt 为测试数据分别复制到文件中，然后执行test.py```即可看到结果123### kmeans.py  from numpy import *import timeimport matplotlib.pyplot as plt   calc">
+<meta name="keywords" content="ML">
+<meta property="og:type" content="article">
+<meta property="og:title" content="KMeans (Python Code)">
+<meta property="og:url" content="http://www.bobliu.vip/2017/09/10/kmeans_python/index.html">
 <meta property="og:site_name" content="BobLiu&#39;s AI world">
-<meta property="og:description" content="Enjoy Your AI">
+<meta property="og:description" content="用于N维数据的聚类代码，根据你提供的数据维度包含三个代码：  kmeans.py 为kmeans实现源码 test.py 为测试代码 testdata.txt 为测试数据分别复制到文件中，然后执行test.py```即可看到结果123### kmeans.py  from numpy import *import timeimport matplotlib.pyplot as plt   calc">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-09-10T05:36:06.633Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="BobLiu&#39;s AI world">
-<meta name="twitter:description" content="Enjoy Your AI">
+<meta name="twitter:title" content="KMeans (Python Code)">
+<meta name="twitter:description" content="用于N维数据的聚类代码，根据你提供的数据维度包含三个代码：  kmeans.py 为kmeans实现源码 test.py 为测试代码 testdata.txt 为测试数据分别复制到文件中，然后执行test.py```即可看到结果123### kmeans.py  from numpy import *import timeimport matplotlib.pyplot as plt   calc">
   
   
     <link rel="icon" href="/assets/img/sure.jpg">
@@ -161,60 +163,221 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-kmeans_python" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/10/2017-first-blood/" class="archive-article-date">
-  	<time datetime="2017-09-10T01:59:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-10</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/10/2017-first-blood/">2017 first blood</a>
+    <h1 class="article-title" itemprop="name">
+      KMeans (Python Code)
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/09/10/kmeans_python/" class="archive-article-date">
+  	<time datetime="2017-09-10T05:35:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>用于N维数据的聚类代码，根据你提供的数据维度<br>包含三个代码：</p>
+<ul>
+<li>kmeans.py 为kmeans实现源码</li>
+<li>test.py 为测试代码</li>
+<li>testdata.txt 为测试数据<br>分别复制到文件中，然后执行<figure class="highlight python"><figcaption><span>test.py```即可看到结果</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line"><span class="comment">### kmeans.py</span></div></pre></td></tr></table></figure></li>
+</ul>
+<p>from numpy import *<br>import time<br>import matplotlib.pyplot as plt  </p>
+<h1 id="calculate-Euclidean-distance"><a href="#calculate-Euclidean-distance" class="headerlink" title="calculate Euclidean distance"></a>calculate Euclidean distance</h1><p>def euclDistance(vector1, vector2):<br>    return sqrt(sum(power(vector2 - vector1, 2)))</p>
+<h1 id="init-centroids-with-random-samples"><a href="#init-centroids-with-random-samples" class="headerlink" title="init centroids with random samples"></a>init centroids with random samples</h1><p>def initCentroids(dataSet, k):<br>    numSamples, dim = dataSet.shape<br>    centroids = zeros((k, dim))<br>    for i in range(k):<br>        index = int(random.uniform(0, numSamples))<br>        print index<br>        centroids[i, :] = dataSet[index, :]<br>    return centroids  </p>
+<h1 id="k-means-cluster"><a href="#k-means-cluster" class="headerlink" title="k-means cluster"></a>k-means cluster</h1><p>def kmeans(dataSet, k):<br>    numSamples = dataSet.shape[0]  </p>
+<pre><code># first column stores which cluster this sample belongs to,  
+# second column stores the error between this sample and its centroid  
+clusterAssment = mat(zeros((numSamples, 2)))  
+clusterChanged = True  
+
+## step 1: init centroids  
+centroids = initCentroids(dataSet, k)  
+
+while clusterChanged:  
+    clusterChanged = False  
+    ## for each sample  
+    for i in xrange(numSamples):  
+        minDist  = 100000.0  
+        minIndex = 0  
+        ## for each centroid  
+        ## step 2: find the centroid who is closest  
+        for j in range(k):  
+            distance = euclDistance(centroids[j, :], dataSet[i, :])  
+            if distance &lt; minDist:  
+                minDist  = distance  
+                minIndex = j  
+
+        ## step 3: update its cluster  
+        if clusterAssment[i, 0] != minIndex:  
+            clusterChanged = True  
+            clusterAssment[i, :] = minIndex, minDist**2  
+
+    ## step 4: update centroids  
+    for j in range(k):  
+        pointsInCluster = dataSet[nonzero(clusterAssment[:, 0].A == j)[0]]  
+        centroids[j, :] = mean(pointsInCluster, axis = 0)  
+
+print &apos;Congratulations, cluster complete!&apos;  
+return centroids, clusterAssment  
+</code></pre><h1 id="show-your-cluster-only-available-with-2-D-data"><a href="#show-your-cluster-only-available-with-2-D-data" class="headerlink" title="show your cluster only available with 2-D data"></a>show your cluster only available with 2-D data</h1><p>def showCluster(dataSet, k, centroids, clusterAssment):<br>    numSamples, dim = dataSet.shape<br>    if dim != 2:<br>        print “Sorry! I can not draw because the dimension of your data is not 2!”<br>        return 1  </p>
+<pre><code>mark = [&apos;or&apos;, &apos;ob&apos;, &apos;og&apos;, &apos;ok&apos;, &apos;^r&apos;, &apos;+r&apos;, &apos;sr&apos;, &apos;dr&apos;, &apos;&lt;r&apos;, &apos;pr&apos;]  
+if k &gt; len(mark):  
+    print &quot;Sorry! Your k is too large! please contact Zouxy&quot;  
+    return 1  
+
+# draw all samples  
+for i in xrange(numSamples):  
+    markIndex = int(clusterAssment[i, 0])  
+    plt.plot(dataSet[i, 0], dataSet[i, 1], mark[markIndex])  
+
+mark = [&apos;Dr&apos;, &apos;Db&apos;, &apos;Dg&apos;, &apos;Dk&apos;, &apos;^b&apos;, &apos;+b&apos;, &apos;sb&apos;, &apos;db&apos;, &apos;&lt;b&apos;, &apos;pb&apos;]  
+# draw the centroids  
+for i in range(k):  
+    plt.plot(centroids[i, 0], centroids[i, 1], mark[i], markersize = 12)  
+
+plt.show()
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### test.py</div></pre></td></tr></table></figure>
+<p>from numpy import <em><br>import time<br>import matplotlib.pyplot as plt<br>from kmeans import </em></p>
+<h2 id="step-1-load-data"><a href="#step-1-load-data" class="headerlink" title="step 1: load data"></a>step 1: load data</h2><p>print “step 1: load data…”<br>dataSet = []<br>fileIn = open(‘testdata.txt’)<br>for line in fileIn.readlines():<br>    lineArr = line.strip().split()<br>    dataSet.append([float(lineArr[0]), float(lineArr[1]), float(lineArr[2])])  </p>
+<h2 id="step-2-clustering…"><a href="#step-2-clustering…" class="headerlink" title="step 2: clustering…"></a>step 2: clustering…</h2><p>print “step 2: clustering…”<br>dataSet = mat(dataSet)<br>k = 4<br>centroids, clusterAssment = kmeans(dataSet, k)  </p>
+<p>print centroids</p>
+<h2 id="step-3-show-the-result"><a href="#step-3-show-the-result" class="headerlink" title="step 3: show the result"></a>step 3: show the result</h2><h1 id="print-“step-3-show-the-result…”"><a href="#print-“step-3-show-the-result…”" class="headerlink" title="print “step 3: show the result…”"></a>print “step 3: show the result…”</h1><h1 id="showCluster-dataSet-k-centroids-clusterAssment"><a href="#showCluster-dataSet-k-centroids-clusterAssment" class="headerlink" title="showCluster(dataSet, k, centroids, clusterAssment)"></a>showCluster(dataSet, k, centroids, clusterAssment)</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### testdata.txt</div><div class="line">这里是３维的数据，</div></pre></td></tr></table></figure>
+<p>1 1 1<br>2 2 2<br>3 2 3<br>1 3 1<br>10 10 10<br>12 12 12<br>13 12 13<br>11 13 11<br>21 21 21<br>22 22 22<br>23 22 23<br>21 23 21<br>31 31 31<br>32 32 32<br>33 32 33<br>31 33 31<br>```</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>你为世界和平做出了自己的贡献<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/wechat.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">other</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ML</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://www.bobliu.vip/2017/09/10/kmeans_python/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2017/09/10/2017-first-blood/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">2017 first blood</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
   
 
-    
+
 
 
           </div>
@@ -237,9 +400,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		root: "/",
